@@ -17,6 +17,11 @@ def make_test_df():
     )
 
 
+def test_starts_with():
+    df = make_test_df()
+    assert df.select.starts_with("foo").equals(df[["foo_int1_end", "foo_float1"]])
+
+
 def test_ends_with():
     df = make_test_df()
     assert df.select.ends_with("end").equals(
